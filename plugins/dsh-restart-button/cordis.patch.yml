@@ -1,0 +1,4 @@
+# Adds a restart page under Settings → Plugins. Disables nothing.
+- insert:
+    - id: restart-button
+      name: '@local/dsh-restart-button'

@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Restart service",
+    "description": "Adds a restart page under Settings → Plugins: it asks the supervisor to relaunch dsh, then waits for the service and reloads the page, so plugin changes that only take effect in a fresh process can be applied without a shell."
+  }
+}

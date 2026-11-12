@@ -1,0 +1,21 @@
+{
+  "name": "@local/dsh-restart-button",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Adds a restart action to Settings → Plugins. The page asks the Host to exit and a supervisor relaunches the process, so startup-only plugin changes can be applied without a shell.",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json"
+  },
+  "files": ["index.js", "client.js", "cordis.patch.yml", "locale/*.json", "README.md"],
+  "dsh": {
+    "bundle": { "patch": "./cordis.patch.yml" },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": ["@deepseek-ai/dsh-client-ui-primitives"]
+    }
+  }
+}
