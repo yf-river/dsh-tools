@@ -1,0 +1,4 @@
+# Diagnostics only: records page reloads and slot crashes to the host log.
+- insert:
+    - id: page-probe
+      name: '@local/dsh-page-probe'

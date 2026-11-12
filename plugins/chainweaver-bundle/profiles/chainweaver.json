@@ -1,0 +1,14 @@
+{
+  "name": "chainweaver-profile",
+  "private": true,
+  "type": "module",
+  "dsh": {
+    "profile": {
+      "bundles": [
+        "@deepseek-ai/dsh-base",
+        "@deepseek-ai/dsh-web-app",
+        "chainweaver-bundle"
+      ]
+    }
+  }
+}

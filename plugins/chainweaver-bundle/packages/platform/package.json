@@ -1,0 +1,1 @@
+{"name":"@chainweaver/platform","version":"0.1.0","private":true,"type":"module","description":"ChainWeaver 账号入口、隔离运行与项目资源管理","exports":{".":"./src/index.mjs","./package.json":"./package.json"},"files":["src","public","cordis.patch.yml"],"dsh":{"bundle":{"patch":"./cordis.patch.yml"}},"engines":{"node":">=24.9.0","dsh":"^0.2.2-rc.1"}}

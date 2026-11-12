@@ -5,7 +5,7 @@ DeepSeek Harness 的技能与插件集合。
 | 目录 | 内容 | 给谁用 |
 |---|---|---|
 | `skills/` | Markdown 文档，任务匹配时加载进 agent 上下文 | 只有 agent |
-| `plugins/` | 可运行代码，注入浏览器或 Host | 人 + agent |
+| `plugins/` | 可运行代码，注入浏览器或 Host；小到单个 UI 插件，大到完整产品 bundle | 人 + agent |
 
 两者解决的是不同问题：技能让 agent **知道怎么做**，插件**提供运行时能力**。
 
@@ -76,6 +76,14 @@ description: "何时使用这个技能。这段描述决定 agent 会不会加�
 | `probe` | 在页面里执行任意只读表达式 |
 
 **为什么需要它**：agent 跑在 Host，插件跑在浏览器，两者之间只有结构化查询通道。所有「数据对、结构对、画面错」的 bug 在那边完全不可见。
+
+### [chainweaver-bundle](./plugins/chainweaver-bundle/README.md)
+
+ChainWeaver 的完整产品 bundle：独立发展的 Superagent（任务、来源、执行、提示词面板）、账号与个人运行空间、项目与卷管理、Docker 运行时编排。
+
+含三个子包：`platform`（服务端与编排）、`runtime`（容器运行时）、`superagent`（DSH 插件本体，60+ 测试、8 篇设计文档）。
+
+**体积说明**：仓库只收录源码、测试与文档（约 4MB）。`node_modules/`、`lib/`（构建产物）、`.artifacts/`（浏览器验证录像）按项目自身的 `.gitignore` 排除。
 
 ### [dsh-restart-button](./plugins/dsh-restart-button/README.md)
 

@@ -1,0 +1,8 @@
+- insert:
+    - id: chainweaver-platform
+      name: '@chainweaver/platform'
+      config:
+        host: !!js process.env.CHAINWEAVER_HOST ?? '127.0.0.1'
+        port: !!js Number(process.env.CHAINWEAVER_PORT ?? 33090)
+        stateDir: !!js process.env.CHAINWEAVER_PLATFORM_HOME
+        runtimeImage: !!js process.env.CHAINWEAVER_RUNTIME_IMAGE ?? 'chainweaver/runtime:0.1.0'

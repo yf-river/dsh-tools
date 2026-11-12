@@ -1,0 +1,30 @@
+# ChainWeaver 产品配置，应用于 Web 和 Superagent 两层之后。
+- id: preset-ptc
+  disabled: true
+- id: preset-minimal
+  disabled: true
+- id: preset-cordis
+  disabled: true
+
+# Router 和 Worker 属于 Superagent 的内部执行预设。
+- id: agent-preset-registry
+  config:
+    default: standard
+
+- id: ui-brand-official
+  disabled: true
+- id: ui-sidebar
+  config:
+    showBrand: false
+- id: ui-conversation
+  config:
+    showHeroBrand: false
+
+- insert:
+    - id: chainweaver-runtime
+      name: chainweaver-runtime
+
+# 账号由平台统一管理，模型在个人空间的模型设置中配置。
+- id: ui-settings-models
+  config:
+    credentialOnboarding: false

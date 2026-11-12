@@ -1,0 +1,1 @@
+{"name":"chainweaver-runtime","version":"0.1.0","private":true,"type":"module","exports":{".":"./src/index.mjs","./client":"./src/client.cjs","./package.json":"./package.json"},"files":["src"],"dsh":{"client":{"platform":"web","inject":["@deepseek-ai/dsh-client-ui-sidebar","@deepseek-ai/dsh-client-ui-renderer"]}},"engines":{"dsh":"^0.2.2-rc.1","node":">=24.9.0"}}

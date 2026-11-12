@@ -1,0 +1,25 @@
+[Unit]
+Description=ChainWeaver accounts and isolated personal runtimes
+After=network-online.target docker.service chainweaver-users.slice
+Wants=network-online.target
+Requires=docker.service chainweaver-users.slice
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/data/ida/ai/chainweaver-bundle
+Environment=PATH=/data/ida/ai/chainweaver-bundle/.local/runtime/node-v24.18.1-linux-x64/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+Environment=DSH_REPO=/data/ida/ai/chainweaver-studio
+Environment=CHAINWEAVER_HOST=9.134.129.162
+Environment=CHAINWEAVER_PORT=3080
+Environment=CHAINWEAVER_PLATFORM_HOME=/data/ida/ai/chainweaver-bundle/.local/platform
+Environment=CHAINWEAVER_CONTROL_HOME=/data/ida/ai/chainweaver-bundle/.local/platform-control
+ExecStart=/data/ida/ai/chainweaver-bundle/.local/runtime/node-v24.18.1-linux-x64/bin/node scripts/platform.mjs
+Restart=on-failure
+RestartSec=3
+TimeoutStopSec=60
+KillMode=control-group
+UMask=0077
+
+[Install]
+WantedBy=multi-user.target

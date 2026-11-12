@@ -1,0 +1,14 @@
+{
+  "name": "@local/dsh-page-probe",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Records page reloads and slot crashes to the host log without changing behaviour. Diagnostics only.",
+  "exports": {
+    ".": "./index.js"
+  },
+  "files": ["index.js", "page-probe.js", "cordis.patch.yml", "README.md"],
+  "dsh": {
+    "bundle": { "patch": "./cordis.patch.yml" }
+  }
+}

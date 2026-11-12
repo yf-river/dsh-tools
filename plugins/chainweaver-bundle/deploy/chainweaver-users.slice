@@ -1,0 +1,7 @@
+[Unit]
+Description=ChainWeaver personal runtime resource budget
+
+[Slice]
+MemoryMax=16G
+CPUQuota=800%
+TasksMax=4096
