@@ -1,0 +1,11 @@
+# Take over the sidebar's browsing region so this bundle can render the pinned
+# board above the Workspace list. Two rows change:
+#   1. the shipped browser row is disabled (its Client module must not register
+#      a second occupant of the same single slot), and
+#   2. this bundle inserts its own copy of that browser, with the board on top.
+- id: ui-workspace
+  disabled: true
+
+- insert:
+    - id: pinned-sessions
+      name: '@local/dsh-pinned-sessions'

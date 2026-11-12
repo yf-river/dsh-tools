@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "AI 观察眼",
+    "description": "让 AI 能看到页面的真实渲染结果：捕获报错、快照可见的 DOM、记录交互事件，全部通过 cordis_inspect_query 读取，不需要截图。"
+  }
+}

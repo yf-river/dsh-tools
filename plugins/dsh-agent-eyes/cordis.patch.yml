@@ -1,0 +1,5 @@
+# Registers one Client inspect provider that reports what the page actually did.
+# No shipped row is disabled: this bundle only adds capability.
+- insert:
+    - id: agent-eyes
+      name: '@local/dsh-agent-eyes'

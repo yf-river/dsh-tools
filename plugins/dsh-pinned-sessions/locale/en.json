@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Pinned sessions board",
+    "description": "Adds a pinned-session board at the top of the sidebar's Workspace list, collecting every pinned Session so it opens without expanding its group; the built-in pin, archive, and rename actions stay available from the row's context menu."
+  }
+}

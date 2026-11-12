@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Agent eyes",
+    "description": "Lets the agent see what the page actually rendered: captured failures, a painted-DOM snapshot, and the interaction event log, all readable through cordis_inspect_query without screenshots."
+  }
+}
