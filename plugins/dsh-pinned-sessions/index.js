@@ -54,7 +54,7 @@ const MAX_BODY_BYTES = 256 * 1024
 
 /** An empty layout, used when the record is absent or unreadable. */
 function emptyLayout() {
-  return { version: RECORD_VERSION, groups: [], members: {}, slotMemory: {} }
+  return { version: RECORD_VERSION, pinboardGroups: [], pinboardGroupMembers: {}, pinboardSlotMemory: {} }
 }
 
 /**
@@ -127,8 +127,8 @@ function readLayout(value) {
   if (!isRecord(value)) return undefined
   const groups = []
   const seen = new Set()
-  if (Array.isArray(value.groups)) {
-    for (const entry of value.groups) {
+  if (Array.isArray(value.pinboardGroups)) {
+    for (const entry of value.pinboardGroups) {
       const group = readGroup(entry)
       if (group === undefined || seen.has(group.id)) continue
       seen.add(group.id)
@@ -137,22 +137,22 @@ function readLayout(value) {
     }
   }
   const members = {}
-  if (isRecord(value.members)) {
-    for (const [key, entry] of Object.entries(value.members)) {
+  if (isRecord(value.pinboardGroupMembers)) {
+    for (const [key, entry] of Object.entries(value.pinboardGroupMembers)) {
       if (key.length > 64) continue
       const ids = readIdList(entry)
       if (ids.length > 0) members[key] = ids
     }
   }
   const slotMemory = {}
-  if (isRecord(value.slotMemory)) {
-    for (const [key, entry] of Object.entries(value.slotMemory)) {
+  if (isRecord(value.pinboardSlotMemory)) {
+    for (const [key, entry] of Object.entries(value.pinboardSlotMemory)) {
       if (key.length > 128) continue
       if (typeof entry !== 'number' || !Number.isSafeInteger(entry) || entry < 0) continue
       slotMemory[key] = entry
     }
   }
-  return { version: RECORD_VERSION, groups, members, slotMemory }
+  return { version: RECORD_VERSION, pinboardGroups: groups, pinboardGroupMembers: members, pinboardSlotMemory: slotMemory }
 }
 
 /**
