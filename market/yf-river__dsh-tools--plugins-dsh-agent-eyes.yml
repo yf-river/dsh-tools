@@ -1,0 +1,6 @@
+url: https://github.com/yf-river/dsh-tools/tree/main/plugins/dsh-agent-eyes
+name: yf-river/dsh-tools#dsh-agent-eyes
+category: dev
+description:
+  en: "Lets an agent read what the browser actually rendered: captured errors and stack traces, a painted-DOM snapshot grouped by the plugin that owns each node, the interaction event log with defaultPrevented, and a read-only expression probe — all through the existing inspect query."
+  zh: "让 agent 读到浏览器的真实渲染结果：捕获报错与堆栈、按所属插件归组的可见 DOM 快照、带 defaultPrevented 的交互事件流，以及只读表达式探测，全部通过现有 inspect 查询读取。"

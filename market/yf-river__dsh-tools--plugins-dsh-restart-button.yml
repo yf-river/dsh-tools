@@ -1,0 +1,6 @@
+url: https://github.com/yf-river/dsh-tools/tree/main/plugins/dsh-restart-button
+name: yf-river/dsh-tools#dsh-restart-button
+category: dev
+description:
+  en: "Restart page under Settings > Plugins: asks the Host to exit so a supervisor relaunches it, then waits for the origin and reloads the page. Refuses when no supervisor is detected, because a process cannot restart itself."
+  zh: "「设置 → 插件」里的重启页面：请求 Host 退出、由守护进程重新拉起，然后等待服务恢复并自动刷新。检测不到守护进程时拒绝执行，因为进程无法重启自己。"

@@ -1,0 +1,6 @@
+url: https://github.com/yf-river/dsh-tools/tree/main/plugins/dsh-pinned-sessions
+name: yf-river/dsh-tools#dsh-pinned-sessions
+category: ui
+description:
+  en: "Pinned-session board above the Workspace tree: one collapsible list spanning every workspace, with custom drag order, custom groups, and per-row run status (spinning while running, highlighted when waiting for you, tinted when done)."
+  zh: "侧边栏置顶会话面板：跨工作区汇总成一个可折叠列表，支持拖动自定义排序与自定义分组，并按状态区分每一行（运行中转圈、等你回答整行高亮、已完成淡绿）。"
