@@ -9,7 +9,7 @@
  * survive its own action: a page cannot reload a server that is already gone.
  */
 window.__ModuleLoader__.load({
-  id: '@local/dsh-restart-button',
+  id: '@yf-river/dsh-restart-button',
   factory(require) {
     const React = require('react')
     const h = React.createElement
@@ -290,10 +290,10 @@ window.__ModuleLoader__.load({
         ctx.effect(() => ctx.locale.register(NS, { zh, en }), 'restart-button: dictionaries')
         ctx.effect(() => {
           if (typeof document === 'undefined') return undefined
-          const id = '@local/dsh-restart-button/page.css'
+          const id = '@yf-river/dsh-restart-button/page.css'
           if (document.querySelector(`style[data-plugin-css=${JSON.stringify(id)}]`) !== null) return undefined
           const tag = document.createElement('style')
-          tag.dataset.plugin = '@local/dsh-restart-button'
+          tag.dataset.plugin = '@yf-river/dsh-restart-button'
           tag.dataset.pluginCss = id
           tag.textContent = CSS
           document.head.appendChild(tag)

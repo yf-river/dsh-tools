@@ -4,6 +4,18 @@ Adds a **Restart** page under Settings → Plugins. One button asks the Host to
 exit; the supervisor relaunches the process; the page waits for the origin to
 answer and then reloads itself.
 
+## Install
+
+```bash
+dsh plugin --profile web add @yf-river/dsh-restart-button
+```
+
+Or from this repository directly:
+
+```bash
+dsh plugin --profile web add github:yf-river/dsh-tools#plugins/dsh-restart-button
+```
+
 ## Why a supervisor is required
 
 A process cannot restart itself. It can only exit, and whether anything comes
@@ -62,3 +74,11 @@ cannot recompose).
 | `index.js` | Host half: supervisor detection plus three routes. |
 | `client.js` | Browser half: the settings page and its state machine. |
 | `cordis.patch.yml` | Inserts this bundle; disables nothing. |
+
+## License
+
+MIT. See [LICENSE](../../LICENSE) at the repository root.
+
+---
+
+在「设置 → 插件」里加一个重启页面：请求 Host 退出，由守护进程重新拉起，页面在服务恢复后自动刷新。

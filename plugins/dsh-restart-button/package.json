@@ -1,21 +1,50 @@
 {
-  "name": "@local/dsh-restart-button",
+  "name": "@yf-river/dsh-restart-button",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "type": "module",
-  "description": "Adds a restart action to Settings → Plugins. The page asks the Host to exit and a supervisor relaunches the process, so startup-only plugin changes can be applied without a shell.",
+  "description": "Adds a restart page under Settings > Plugins: it asks the Host to exit so a supervisor relaunches it, then reloads the page when the service returns.",
+  "keywords": [
+    "dsh-plugin",
+    "restart",
+    "operations",
+    "settings",
+    "supervisor"
+  ],
   "exports": {
     ".": "./index.js",
     "./client": "./client.js",
     "./locale/*.json": "./locale/*.json"
   },
-  "files": ["index.js", "client.js", "cordis.patch.yml", "locale/*.json", "README.md"],
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "README.md"
+  ],
   "dsh": {
-    "bundle": { "patch": "./cordis.patch.yml" },
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
     "client": {
       "platform": "web",
       "immediately": true,
-      "inject": ["@deepseek-ai/dsh-client-ui-primitives"]
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-primitives"
+      ]
     }
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yf-river/dsh-tools.git",
+    "directory": "plugins/dsh-restart-button"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=20"
   }
 }
