@@ -17,7 +17,7 @@
  * Workspace store, and a group that names an unpinned Session is pruned on
  * read, so a deleted or unpinned Session cannot resurrect a stale row.
  *
- * @module @local/dsh-pinned-sessions
+ * @module @yf-river/dsh-pinned-sessions
  */
 
 import { mkdir, readFile, rename, rm, writeFile } from 'node:fs/promises'

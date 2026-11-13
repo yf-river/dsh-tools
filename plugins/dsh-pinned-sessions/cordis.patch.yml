@@ -8,4 +8,4 @@
 
 - insert:
     - id: pinned-sessions
-      name: '@local/dsh-pinned-sessions'
+      name: '@yf-river/dsh-pinned-sessions'

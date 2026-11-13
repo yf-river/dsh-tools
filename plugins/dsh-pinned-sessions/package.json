@@ -1,13 +1,22 @@
 {
-  "name": "@local/dsh-pinned-sessions",
+  "name": "@yf-river/dsh-pinned-sessions",
   "version": "0.2.0",
-  "private": true,
+  "private": false,
   "type": "module",
-  "description": "Adds a pinned-session board above the sidebar's Workspace list, so a pin is reachable without expanding its group.",
+  "description": "Adds a pinned-session board to the sidebar: one collapsible list above the Workspace tree with custom order, custom groups, and per-Session run status.",
+  "keywords": [
+    "dsh-plugin",
+    "sidebar",
+    "pinned",
+    "sessions",
+    "workspace",
+    "ui"
+  ],
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yf-river/dsh-pinned-sessions.git"
+    "url": "git+https://github.com/yf-river/dsh-tools.git",
+    "directory": "plugins/dsh-pinned-sessions"
   },
   "exports": {
     ".": "./index.js",
@@ -22,8 +31,7 @@
     "locale/*.json",
     "icon.svg",
     "README.md",
-    "NOTICE.md",
-    "LICENSE"
+    "NOTICE.md"
   ],
   "dsh": {
     "bundle": {
@@ -47,5 +55,11 @@
         "@deepseek-ai/dsh-client-ui-context-menu"
       ]
     }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=20"
   }
 }
