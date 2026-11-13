@@ -3,6 +3,18 @@
 Adds a pinned-session board at the very top of the sidebar's Workspace list,
 with a custom order, custom groups, and a running spinner.
 
+## Install
+
+```bash
+dsh plugin --profile web add @yf-river/dsh-pinned-sessions
+```
+
+Or from this repository directly:
+
+```bash
+dsh plugin --profile web add github:yf-river/dsh-tools#plugins/dsh-pinned-sessions
+```
+
 ## Why this replaces a built-in plugin
 
 The sidebar's browsing region is a single `single` slot (`sidebar.workspaces`)
@@ -96,3 +108,11 @@ the changes above; verify with `cordis_inspect_query` that the
 declare. If the shipped store schema changes, keep the new fields and re-check
 that old persisted data still reads through the `??` defaults. Disabling this
 bundle in Plugins settings restores the built-in browser immediately.
+
+## License
+
+MIT. See [LICENSE](../../LICENSE) at the repository root.
+
+---
+
+侧边栏置顶会话面板：把跨工作区的置顶会话汇总成一个可折叠列表，支持自定义排序、自定义分组，并按状态区分每一行（运行中转圈、等你回答整行高亮、已完成淡绿、空闲）。
