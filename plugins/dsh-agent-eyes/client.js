@@ -16,7 +16,7 @@
  * It observes only. It never mutates application state, and it persists nothing.
  */
 window.__ModuleLoader__.load({
-  id: '@local/dsh-agent-eyes',
+  id: '@yf-river/dsh-agent-eyes',
   factory(require) {
     /** Inspect provider id, addressed as `cordis_inspect_query(provider: ...)`. */
     const PROVIDER = 'agent-eyes'

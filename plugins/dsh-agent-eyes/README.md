@@ -4,6 +4,18 @@ Lets the agent see the live page. Registers one extra Client inspect provider
 (`agent-eyes`) so the agent can read what the browser actually did, through the
 same `cordis_inspect_query` tool it already uses.
 
+## Install
+
+```bash
+dsh plugin --profile web add @yf-river/dsh-agent-eyes
+```
+
+Or from this repository directly:
+
+```bash
+dsh plugin --profile web add github:yf-river/dsh-tools#plugins/dsh-agent-eyes
+```
+
 ## Why this exists
 
 The agent runs in the Host process; plugins run in the browser. The shipped
@@ -83,3 +95,11 @@ This bundle makes the *page* observable. It does not make a plugin's
 the plugin expected five. That second layer — each plugin reporting its own
 invariants — remains worth doing later, but it is a separate concern, and it
 requires every participating plugin to adopt it. This bundle requires none.
+
+## License
+
+MIT. See [LICENSE](../../LICENSE) at the repository root.
+
+---
+
+让 agent 读到浏览器的真实渲染结果：捕获报错、按所属插件归组的可见 DOM 快照、交互事件流，以及任意只读表达式探测，全部通过现有的 inspect 查询读取。

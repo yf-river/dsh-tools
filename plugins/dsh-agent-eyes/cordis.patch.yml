@@ -2,4 +2,4 @@
 # No shipped row is disabled: this bundle only adds capability.
 - insert:
     - id: agent-eyes
-      name: '@local/dsh-agent-eyes'
+      name: '@yf-river/dsh-agent-eyes'

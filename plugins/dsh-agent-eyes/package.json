@@ -1,21 +1,51 @@
 {
-  "name": "@local/dsh-agent-eyes",
+  "name": "@yf-river/dsh-agent-eyes",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "type": "module",
-  "description": "Lets the agent see the live page: captured failures, a painted-DOM snapshot attributed by owning plugin, the interaction event log, and a read-only probe.",
+  "description": "Lets an agent read what the browser actually rendered: captured errors, a painted-DOM snapshot attributed by owning plugin, the interaction event log, and a read-only probe, all through the existing inspect query tool.",
+  "keywords": [
+    "dsh-plugin",
+    "agent",
+    "debugging",
+    "inspect",
+    "dom",
+    "diagnostics"
+  ],
   "exports": {
     ".": "./index.js",
     "./client": "./client.js",
     "./locale/*.json": "./locale/*.json"
   },
-  "files": ["index.js", "client.js", "cordis.patch.yml", "locale/*.json", "README.md"],
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "README.md"
+  ],
   "dsh": {
-    "bundle": { "patch": "./cordis.patch.yml" },
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
     "client": {
       "platform": "web",
       "immediately": true,
-      "inject": ["@deepseek-ai/dsh-cordis-client-runner"]
+      "inject": [
+        "@deepseek-ai/dsh-cordis-client-runner"
+      ]
     }
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yf-river/dsh-tools.git",
+    "directory": "plugins/dsh-agent-eyes"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=20"
   }
 }
