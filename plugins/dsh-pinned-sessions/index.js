@@ -54,7 +54,7 @@ const MAX_BODY_BYTES = 256 * 1024
 
 /** An empty layout, used when the record is absent or unreadable. */
 function emptyLayout() {
-  return { version: RECORD_VERSION, pinboardGroups: [], pinboardGroupMembers: {}, pinboardSlotMemory: {} }
+  return { version: RECORD_VERSION, pinboardOrder: [], pinboardGroups: [], pinboardGroupMembers: {}, pinboardSlotMemory: {} }
 }
 
 /**
@@ -136,6 +136,9 @@ function readLayout(value) {
       if (groups.length >= MAX_GROUPS) break
     }
   }
+  /* The board's own order. Without this the layout round-trips through the Host
+     with its order removed, so every device falls back to Host pin order. */
+  const order = readIdList(value.pinboardOrder)
   const members = {}
   if (isRecord(value.pinboardGroupMembers)) {
     for (const [key, entry] of Object.entries(value.pinboardGroupMembers)) {
@@ -152,7 +155,7 @@ function readLayout(value) {
       slotMemory[key] = entry
     }
   }
-  return { version: RECORD_VERSION, pinboardGroups: groups, pinboardGroupMembers: members, pinboardSlotMemory: slotMemory }
+  return { version: RECORD_VERSION, pinboardOrder: order, pinboardGroups: groups, pinboardGroupMembers: members, pinboardSlotMemory: slotMemory }
 }
 
 /**

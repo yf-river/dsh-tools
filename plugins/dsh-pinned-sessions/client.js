@@ -1253,6 +1253,30 @@ window.__ModuleLoader__.load({
 		* register() receives the factory and the browser derives its PropsStore
 		* share from the return type.
 		*/
+		/**
+		* Settings namespace holding the pinboard layout on the Host.
+		*
+		* The layout used to live only in browser localStorage, so a second device
+		* started from an empty layout and never saw later edits: groups created on
+		* one machine did not exist on the other. Storing it in Host settings makes
+		* every device read the same document.
+		*/
+		const PINBOARD_NS = 'pinned-sessions'
+		/** Field under the namespace that carries the whole layout. */
+		const PINBOARD_FIELD = 'layout'
+		/**
+		* Extract the layout fields from a store snapshot.
+		* @param state - the persisted workspace view store.
+		* @returns the layout, with only pinboard-owned fields.
+		*/
+		function layoutOf(state) {
+			return {
+				order: Array.isArray(state.pinboardOrder) ? state.pinboardOrder : [],
+				groups: Array.isArray(state.pinboardGroups) ? state.pinboardGroups : [],
+				members: state.pinboardGroupMembers ?? {},
+				slots: state.pinboardSlotMemory ?? {},
+			}
+		}
 		/** Browser-local order account for the hierarchy-free flat Session list. */
 		const FLAT_SESSION_ORDER_KEY = "__flat_session_order__";
 		/** Copy read-only projections into the persisted mutable store representation. */
