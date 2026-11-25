@@ -1,0 +1,37 @@
+{
+  "name": "@yf-river/dsh-gpt-research",
+  "version": "0.1.0",
+  "private": false,
+  "type": "module",
+  "description": "Ports GPT Researcher's deep research pipeline into DeepSeek Harness: multi-query planning, parallel sub-query research, page scraping, lexical context compression and a cited report, delivered as one deep_research tool.",
+  "keywords": [
+    "dsh-plugin",
+    "research",
+    "deep-research",
+    "gpt-researcher",
+    "agent",
+    "tools"
+  ],
+  "license": "Apache-2.0",
+  "exports": {
+    ".": "./index.js",
+    "./research": "./lib/tools.js",
+    "./config": "./lib/config/plugin.js",
+    "./seam": "./index.js",
+    "./deep": "./lib/deep/index.js"
+  },
+  "files": [
+    "index.js",
+    "lib",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

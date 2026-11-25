@@ -1,0 +1,32 @@
+# Registers the deep_research tool. No shipped row is disabled: this bundle only
+# adds capability. `config` replaces the whole object, so a profile-level
+# override must repeat every field it wants to keep.
+- insert:
+    - id: gpt-research
+      name: '@yf-river/dsh-gpt-research'
+      config:
+        # Research scope: parallel queries per round, recursion depth, and the
+        # concurrency ceiling inside one round.
+        # Measured budget: this pair finishes in ~130 s. Raising either grows
+        # the sub-query count exponentially (3x2 expands to 25 queries).
+        breadth: 2
+        depth: 1
+        concurrency: 4
+        # Retrieval and context budgets.
+        maxSourcesPerQuery: 5
+        maxResultsPerQuery: 10
+        compressionThreshold: 8000
+        # Report shape.
+        language: english
+        reportFormat: APA
+        minReportWords: 1200
+        curateSources: false
+        maxSubtopics: 3
+        maxIterations: 3
+        # Optional model route override; omit to inherit the session's model.
+        # provider: deepseek
+        # model: deepseek-v4.1-flash
+        # Per-call deadlines, milliseconds.
+        searchTimeoutMs: 20000
+        fetchTimeoutMs: 30000
+        toolTimeoutMs: 600000
