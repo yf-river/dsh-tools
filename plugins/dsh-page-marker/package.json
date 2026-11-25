@@ -1,0 +1,42 @@
+{
+  "name": "@yf-river/dsh-page-marker",
+  "version": "0.1.0",
+  "private": false,
+  "type": "module",
+  "description": "Mark elements in a controlled browser and hand the agent exact facts: selector, box model, computed styles, and your own note.",
+  "keywords": [
+    "dsh-plugin",
+    "annotation",
+    "element-picker",
+    "sidebar-browser",
+    "ui-review"
+  ],
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "annotate.js",
+    "browser.mjs",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-primitives"
+      ]
+    }
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  }
+}

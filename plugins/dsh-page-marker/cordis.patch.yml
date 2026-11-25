@@ -1,0 +1,5 @@
+# Serves the injectable marker script and adds the composer entry that
+# delivers picked elements into the current conversation.
+- insert:
+    - id: page-marker
+      name: '@yf-river/dsh-page-marker'
