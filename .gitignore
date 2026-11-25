@@ -1,3 +1,7 @@
 .DS_Store
 *.log
 node_modules/
+
+# dsh-design-studio is its own repository (yf-river/dsh-design-studio); it is
+# installed here with link: and must not be embedded as a gitlink.
+plugins/dsh-design-studio/
