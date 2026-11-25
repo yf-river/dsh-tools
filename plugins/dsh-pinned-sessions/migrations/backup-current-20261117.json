@@ -1,0 +1,46 @@
+{
+  "_note": "Backup of the live pinboard layout as rendered in the browser at the time of capture. Source: localStorage key dsh.workspace.view.v5 in the Chrome profile connected to dsh web.",
+  "_capturedAt": "2026-11-17T00:38:52+08:00",
+  "_capturedFrom": "localStorage dsh.workspace.view.v5 (browser) — identical to /root/.dsh/storages/pinned-sessions/layout.json at capture time",
+  "pinboardGroups": [
+    { "id": "gmwd19jtj", "name": "sop", "collapsed": false },
+    { "id": "gmwdb3hgv", "name": "dsh 开发", "collapsed": false },
+    { "id": "gmwdb3mws", "name": "研发", "collapsed": false }
+  ],
+  "pinboardGroupMembers": {
+    "gmwd19jtj": [
+      "session-38a8e462-d66e-4fc5-b719-7576be4163cd",
+      "session-a6061fc4-f6a3-4b5e-a07a-7f2c36b4857e",
+      "session-68b181e4-4b1f-4c2e-86d6-6f1622183c01",
+      "session-64009e55-e5b0-4528-b8ae-1aecc53ae51e",
+      "session-6cf2c803-3d56-4ae2-a528-a91190c7c21b",
+      "session-e1c3a70e-58ed-4187-a98d-02a7296363d2",
+      "session-428440e2-bd89-4b28-979e-efc42faac7ef"
+    ],
+    "gmwdb3hgv": [
+      "session-c36cc26f-f739-4bd9-893f-c1dedcdceab0",
+      "session-b605ee3c-0b62-4f36-b4f4-dcac5b9da609",
+      "session-3423dca4-8efb-4929-82e9-00e83e8651fc",
+      "session-2e60aac2-b2f3-439a-99ca-80348fd2f66a",
+      "session-074e2eb7-abcc-4252-bff2-00ea82436482",
+      "session-ffe03a51-fc3d-40e1-aa6a-15f74b1d510a",
+      "session-c753f390-0bff-4ef0-aaaf-adbcf75af569",
+      "session-c2200a44-a9fb-4e27-94cb-aa8c316232fc",
+      "session-9c2a3680-4aa6-4fa2-8ba7-b593a2698776",
+      "session-19eb5a99-df00-4c99-bd1a-a3c5beb8f5cb"
+    ],
+    "gmwdb3mws": [
+      "session-52d8d64f-5e01-4caa-b1e7-0f9fe622efe7",
+      "session-a0114c6b-351b-4426-8133-bcad1e4edd36",
+      "session-eeade7f3-dda7-4f8b-8e1f-e19fe7e7b661",
+      "session-b2602047-335e-4afd-b8dd-9329913c48af",
+      "session-648bf5e1-0981-48d9-8f32-d27614dd6de0",
+      "session-dfead922-2d9d-4e4e-8e09-95f72ccc1759",
+      "session-5bfb392d-7fd0-4a76-817a-eab75e3bfa15"
+    ]
+  },
+  "pinboardOrder": [],
+  "pinboardSlotMemory": {
+    "session-428440e2-bd89-4b28-979e-efc42faac7ef": { "groupId": "gmwdb3hgv", "index": 10 }
+  }
+}

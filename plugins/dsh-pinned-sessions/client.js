@@ -6705,8 +6705,12 @@ window.__ModuleLoader__.load({
 					   no members is treated as "nothing to adopt" and the local layout
 					   is *uploaded* instead, seeding the shared record from the device
 					   that actually had the groups. */
-					const hostGroups = Array.isArray(layout.groups) ? layout.groups : [];
-					const hostMembers = layout.members !== null && typeof layout.members === "object" ? layout.members : {};
+					/* These must match the record's own field names. Reading `groups` /
+					   `members` here made every record look empty, so a device with any
+					   local groups always took the "seed the Host" branch and pushed its
+					   own layout instead of adopting the shared one. */
+					const hostGroups = Array.isArray(layout.pinboardGroups) ? layout.pinboardGroups : [];
+					const hostMembers = layout.pinboardGroupMembers !== null && typeof layout.pinboardGroupMembers === "object" ? layout.pinboardGroupMembers : {};
 					const hostEmpty = hostGroups.length === 0 && Object.keys(hostMembers).length === 0;
 					const localGroups = Array.isArray(current.pinboardGroups) ? current.pinboardGroups : [];
 					const localMembers = current.pinboardGroupMembers ?? {};
