@@ -67,11 +67,58 @@ Reach for this button when `plugin_manager` reports `restart-required`, or when
 a change touches the process itself (port, host bind, composition that HMR
 cannot recompose).
 
+## Resuming work across the restart
+
+A restart closes any running Turn as `interrupted`, and that Turn cannot be
+replayed. The goal, however, survives — but a resumed Session always starts
+`disarmed`, so the round driver will not continue on its own.
+
+This half closes that gap. Two moments matter:
+
+| Moment | Action |
+|---|---|
+| Before exiting (and on `SIGTERM`) | Snapshot every Session that is running a Turn or holds an `active` goal |
+| After `appReady`, delayed | For whitelisted Sessions: reopen, re-arm the goal, and queue one notice when a Turn was cut |
+
+`config.sessions` is a whitelist of exact Session ids or `prefix*` patterns.
+An empty list records the snapshot and resumes nothing, so a restart never
+silently authorizes work the user did not name.
+
+```yaml
+- id: restart-button
+  name: '@yf-river/dsh-restart-button'
+  config:
+    sessions:
+      - session-33c8cd12-216e-4380-8dc3-3b38c6969cbc
+    startDelayMs: 15000
+```
+
+| Field | Default | Meaning |
+|---|---|---|
+| `sessions` | `[]` | Whitelist of Session ids, or `prefix*` patterns |
+| `dir` | `$DSH_HOME/storages/restart-resume` | Snapshot, archives, and journal |
+| `startDelayMs` | `4000` | Delay after readiness before reopening Sessions |
+| `maxAgeMs` | `1800000` | A snapshot older than this is archived without resuming |
+| `keepArchives` | `20` | Processed snapshots retained |
+
+The snapshot is claimed by renaming it to `processed-<time>.json` before any
+Session is touched, so consecutive restarts never resume twice. Every Session
+is isolated: a missing Session, a held writer, or an exhausted goal round cap
+is journaled and skipped, and nothing here can keep the application from
+starting.
+
+Only `active` goals are touched — `paused`, `blocked`, and `complete` stay as
+they are. `GET /plugin/restart/request/status` reports `resume.sessions` (how
+many whitelist entries) and `resume.pending` (whether a snapshot is waiting).
+
+Observability does not depend on the logging exporter: read
+`$DSH_HOME/storages/restart-resume/journal.log`.
+
 ## Files
 
 | File | Role |
 |---|---|
-| `index.js` | Host half: supervisor detection plus three routes. |
+| `index.js` | Host half: supervisor detection, three routes, restart snapshot and resume pass. |
 | `client.js` | Browser half: the settings page and its state machine. |
 | `cordis.patch.yml` | Inserts this bundle; disables nothing. |
 
