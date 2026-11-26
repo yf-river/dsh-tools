@@ -1,0 +1,6 @@
+url: https://github.com/yf-river/dsh-tools/tree/main/plugins/dsh-suggest-prompt
+name: yf-river/dsh-tools#dsh-suggest-prompt
+category: dev
+description:
+  en: "Suggests your next prompt as ghost text inside the composer after every completed agent turn; press Tab to accept it into the draft. Sends only the last turn, redacts secrets, filters meta-text, and never writes to the session log."
+  zh: "每个 agent 回合完成后在输入框里以浅灰幽灵文字预测下一句，按 Tab 采纳进草稿。只发最后一轮、发送前脱敏、输出做语义过滤，不写会话日志。"

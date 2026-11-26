@@ -85,6 +85,12 @@ ChainWeaver 的完整产品 bundle：独立发展的 Superagent（任务、来�
 
 **体积说明**：仓库只收录源码、测试与文档（约 4MB）。`node_modules/`、`lib/`（构建产物）、`.artifacts/`（浏览器验证录像）按项目自身的 `.gitignore` 排除。
 
+### [dsh-suggest-prompt](./plugins/dsh-suggest-prompt/README.dsh-tools.md)
+
+每个 agent 回合完成后，在输入框里垫一行浅灰幽灵文字预测下一句，按 `Tab` 采纳进草稿。fork 自 [`studyzy/dsh-suggest-prompt`](https://github.com/studyzy/dsh-suggest-prompt)。
+
+**边界**：只发最后一轮的用户输入与 AI 最终回答，不读工具调用与推理过程；发送前脱敏，输出做净化与语义过滤；不写会话日志。代价是每个完成回合多一次有界辅助调用。
+
 ### [dsh-restart-button](./plugins/dsh-restart-button/README.md)
 
 在 设置 → 插件 增加一个「重启」页面。点击后由守护进程重新拉起 dsh，页面等待服务恢复并自动重载。

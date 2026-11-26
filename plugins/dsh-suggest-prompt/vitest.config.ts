@@ -1,0 +1,35 @@
+import { fileURLToPath } from 'node:url'
+import { defineConfig } from 'vitest/config'
+
+/**
+ * Map the single package's outlets to their source when the tests import them
+ * by name, so tests run against source without a prior build. More specific
+ * outlets must be listed before the bare package name (Vite prefix-matches).
+ */
+export default defineConfig({
+  resolve: {
+    alias: {
+      '@yf-river/dsh-suggest-prompt/client': fileURLToPath(new URL('src/browser/index.ts', import.meta.url)),
+      '@yf-river/dsh-suggest-prompt/types': fileURLToPath(new URL('src/types.ts', import.meta.url)),
+      '@yf-river/dsh-suggest-prompt': fileURLToPath(new URL('src/index.ts', import.meta.url)),
+    },
+  },
+  test: {
+    // `@testing-library/react` needs React's test build (`act`); an inherited
+    // NODE_ENV=production resolves `react-dom/test-utils` to its production
+    // entry, where `act` is absent and every render throws.
+    env: { NODE_ENV: 'test' },
+    include: ['tests/**/*.spec.ts', 'tests/**/*.spec.tsx'],
+    exclude: ['**/provider.e2e.ts', '**/tests/e2e/**'],
+    // The published dsh-client-* packages ship CSS modules (e.g. primitives'
+    // StateDot.module.css); jsdom cannot import them as raw Node files. Inline
+    // the published client dependencies so Vitest's pipeline (CSS modules as
+    // identity class maps) applies to their bundled output too.
+    css: true,
+    server: {
+      deps: {
+        inline: [/@deepseek-ai\/dsh-client-.*/],
+      },
+    },
+  },
+})
