@@ -347,7 +347,7 @@ export function apply(ctx, config) {
           supervisor: supervisor() ?? null,
           pid: process.pid,
           resume: {
-            sessions: resolved.sessions.length,
+            rules: resolved.sessions,
             pending: existsSync(join(resolved.dir, 'state.json')),
           },
         }))

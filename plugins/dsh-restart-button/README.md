@@ -80,22 +80,24 @@ This half closes that gap. Two moments matter:
 | Before exiting (and on `SIGTERM`) | Snapshot every Session that is running a Turn or holds an `active` goal |
 | After `appReady`, delayed | For whitelisted Sessions: reopen, re-arm the goal, and queue one notice when a Turn was cut |
 
-`config.sessions` is a whitelist of exact Session ids or `prefix*` patterns.
-An empty list records the snapshot and resumes nothing, so a restart never
-silently authorizes work the user did not name.
+`config.sessions` decides which of the snapshotted Sessions reopen. `*` matches
+every Session; exact ids and `prefix*` patterns narrow it when a deployment wants
+only some to resume; an empty list records the snapshot and resumes nothing.
+Only Sessions that were running a Turn or holding an `active` goal at exit are in
+the snapshot, so an idle Session is never woken.
 
 ```yaml
 - id: restart-button
   name: '@yf-river/dsh-restart-button'
   config:
     sessions:
-      - session-33c8cd12-216e-4380-8dc3-3b38c6969cbc
+      - '*'
     startDelayMs: 15000
 ```
 
 | Field | Default | Meaning |
 |---|---|---|
-| `sessions` | `[]` | Whitelist of Session ids, or `prefix*` patterns |
+| `sessions` | `[]` | Which snapshotted Sessions resume: `*`, exact ids, or `prefix*` |
 | `dir` | `$DSH_HOME/storages/restart-resume` | Snapshot, archives, and journal |
 | `startDelayMs` | `4000` | Delay after readiness before reopening Sessions |
 | `maxAgeMs` | `1800000` | A snapshot older than this is archived without resuming |
